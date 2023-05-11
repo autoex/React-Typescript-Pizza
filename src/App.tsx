@@ -5,9 +5,7 @@ import Pizza from './models/Pizza';
 import DisplayPizzas from './components/DisplayPizzas';
 
 const App: FC = () => {
-  const [pizzas, setPizzas] = useState<Pizza[]>(
-    JSON.parse(localStorage.getItem('pizzas') || '') || [],
-  );
+  const [pizzas, setPizzas] = useState<Pizza[]>([]);
   const addPizza = (newPizza: Pizza) => {
     setPizzas((prev) => [...prev, newPizza]);
   };
@@ -24,9 +22,9 @@ const App: FC = () => {
     );
   };
 
-  useEffect(() => {
-    localStorage.setItem('pizzas', JSON.stringify(pizzas));
-  }, [pizzas]);
+  // useEffect(() => {
+  //   localStorage.setItem('pizzas', JSON.stringify(pizzas));
+  // }, [pizzas]);
 
   return (
     <div className='App'>
